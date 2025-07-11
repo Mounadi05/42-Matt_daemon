@@ -31,7 +31,7 @@ std::string Tintin_reporter::get_timestamp() {
     auto now = std::chrono::system_clock::now();
     auto in_time_t = std::chrono::system_clock::to_time_t(now);
     std::ostringstream ss;
-    ss << std::put_time(std::localtime(&in_time_t), "%d-%m-%Y %H:%M:%S");
+    ss << std::put_time(std::localtime(&in_time_t), "%d/%m/%Y %H:%M:%S");
     return ss.str();
 }
 
