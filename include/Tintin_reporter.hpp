@@ -13,6 +13,7 @@
 #include <iomanip>
 #include <stdexcept>
 #include <memory>
+#include <csignal> 
 class Tintin_reporter {
 public:
     static Tintin_reporter& instance(); 
