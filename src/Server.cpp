@@ -7,9 +7,12 @@ Server::Server() : server_fd(-1), should_quit(false) {
     poll_fds.reserve(MAX_CLIENTS + 1); 
 }
 
-Server::Server(const Server& other) {}
+Server::Server(const Server& other) {
+    (void)other;
+}
 
 Server& Server::operator=(const Server& other) {
+    (void)other;
     return *this;
 }
 

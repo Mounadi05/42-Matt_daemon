@@ -7,9 +7,15 @@ volatile sig_atomic_t MattDaemon::signal_received = 0;
 
 MattDaemon::MattDaemon(){
 }
-MattDaemon::MattDaemon(const MattDaemon& other) {}
+MattDaemon::MattDaemon(const MattDaemon& other) {
+    (void)other;
+}
   
-MattDaemon& MattDaemon::operator=(const MattDaemon& other) { return *this; }
+MattDaemon& MattDaemon::operator=(const MattDaemon& other) { 
+    (void)other;
+    return *this; 
+}
+    
 MattDaemon::~MattDaemon() {
     if (reporter) {
         reporter->log("Quitting.", Tintin_reporter::Level::INFO);
@@ -85,6 +91,7 @@ void MattDaemon::setup_signals() {
     sigaction(SIGINT, &sa, NULL);
     sigaction(SIGHUP, &sa, NULL);
     sigaction(SIGQUIT, &sa, NULL);
+    
 }
 
 void MattDaemon::run() {
