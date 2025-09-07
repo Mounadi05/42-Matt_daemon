@@ -88,14 +88,23 @@ void MattDaemon::setup_signals() {
 }
 
 void MattDaemon::run() {
-    reporter->log("start server", Tintin_reporter::Level::INFO);
-
-    setup_signals();
-    while (signal_received == 0) {
-        sleep(1); 
+    reporter->log("Creating server.", Tintin_reporter::Level::INFO);
+    
+    if (!server.init()) {
+        reporter->log("Failed to initialize server", Tintin_reporter::Level::ERROR);
+        return;
     }
-
-    reporter->log("Signal " + std::to_string(signal_received) + " received.", Tintin_reporter::Level::INFO);
+    
+    setup_signals();
+    reporter->log("Server created.", Tintin_reporter::Level::INFO);
+    
+    server.run(signal_received);
+    
+    if (signal_received > 0) {
+        reporter->log("Signal " + std::to_string(signal_received) + " received.", Tintin_reporter::Level::INFO);
+    }
+    
+    server.shutdown();
 }
 
 int MattDaemon::lock_deamon() {

@@ -1,6 +1,7 @@
 #ifndef MATT_DAEMON_HPP
 #define MATT_DAEMON_HPP
 #include "Tintin_reporter.hpp"
+#include "Server.hpp"
 
 class MattDaemon {
 public:
@@ -23,6 +24,7 @@ private:
     static  volatile sig_atomic_t signal_received;
     static void signal_handler(int signum);
     Tintin_reporter* reporter; 
+    Server server;
 };
 
 #endif 

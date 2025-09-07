@@ -14,6 +14,14 @@
 #include <stdexcept>
 #include <memory>
 #include <csignal> 
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <unistd.h>
+#include <vector>
+#include <string>
+#include <poll.h>
+#include <algorithm>
 class Tintin_reporter {
 public:
     static Tintin_reporter& instance(); 
