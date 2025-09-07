@@ -16,7 +16,7 @@ A robust daemon service that runs in the background and listens for client conne
 
 - Linux system
 - Root privileges
-- C++ compiler with C++11 support
+- C++ compiler with C++17 support
 
 ## Installation
 
