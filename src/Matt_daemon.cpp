@@ -23,6 +23,7 @@ MattDaemon::~MattDaemon() {
     if (lock_fd > 0) {
         close(lock_fd);
     }
+    unlink("/var/lock/matt_deamon.lock");
 }
 
 void MattDaemon::is_root() {

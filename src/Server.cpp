@@ -21,9 +21,7 @@ Server::~Server() {
 }
 
 bool Server::init() {
-    reporter->log("Creating server.", Tintin_reporter::Level::INFO);
-    
-  
+      
     server_fd = socket(AF_INET, SOCK_STREAM, 0);
     if (server_fd < 0) {
         reporter->log("Socket creation failed", Tintin_reporter::Level::ERROR);
@@ -65,7 +63,6 @@ bool Server::init() {
     pfd.events = POLLIN;
     poll_fds.push_back(pfd);
     
-    reporter->log("Server created.", Tintin_reporter::Level::INFO);
     return true;
 }
 
